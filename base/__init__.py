@@ -40,6 +40,12 @@ def setup_logging(log_name,log_level):
 
 # Timer decorator
 def timeit(f):
+    """Returns decorator wrapper for functions to check runtime
+    params:
+        runtime function
+    returns:
+        output of wrapped function and time to run
+    """
     def runtime(*args,**kwargs):
         start=perf_counter()
         result=f(*args,**kwargs)
@@ -97,6 +103,23 @@ os.path.dirname(os.path.abspath(os.path.dirname('../config/config.ini')))
 #########################################################################
 #! config.ini -> render jinja2 yaml template -> write to yaml -> load with pyyaml
 def read_parse_config(template_dir,template_file,config_file,class_name):
+    """Return dictionary of rendered configuration params for a dag run
+    params:
+        template_dir: directory where jinja2 yaml templates are stored
+        template_file: the template file to render for this dag run
+        config_file: config.ini file with parameters to pass
+        class_name: the class for which the dag has to run
+    returns:
+        dict of rendered params for the class dag run
+    example:
+        >>> read_parse_config("../config/templates/","connections.yaml","../config/config.ini",'S3toRedshift')
+            Out:
+                {
+                    'aws key': ...,
+                    'aws secret': ...,
+                    'db_user': ...
+                }        
+    """
     def config_dict(config_file):
         parser=SafeConfigParser()
         with codecs.open(config_file,"r",encoding='utf-8') as f:
@@ -118,3 +141,8 @@ def read_parse_config(template_dir,template_file,config_file,class_name):
     return rendered_config[class_name]
                 
 print(read_parse_config('../config/templates/','connections.yaml','../config/config.ini','S3toPostgres'))
+
+# TODO: add airflow_add_connection
+# TODO: execute_sql
+# TODO: render sql query templates with parameters
+# TODO: add execute_sql
