@@ -1,0 +1,4 @@
+config/config.ini
+.vscode/
+.ipynb_checkpoints/
+config/rendered_templates/*

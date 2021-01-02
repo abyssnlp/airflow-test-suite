@@ -1,0 +1,15 @@
+# Config file
+# anchors to alias it later on in the code
+
+# Configuration for ETL-1 task
+aws_secret: &aws_secret {{ aws_secret }}
+aws_key: &aws_key {{ aws_key }}
+
+# Postgres (substitute for Redshift DWH)
+pg_connection: &pg_connection postgresql+psycopg2://{{ pg_user }}:{{ pg_password }}@{{ pg_host }}:{{ redshift_port }}/{{ pg_dbname }}
+
+#? define dict for task1
+S3toPostgres:
+  aws_key: *aws_key
+  aws_secret: *aws_secret
+  db_postgres: *pg_connection
