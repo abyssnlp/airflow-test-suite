@@ -7,8 +7,9 @@ __author__='shaurya'
 import os
 import logging
 from datetime import datetime
-from utils import setup_logging,timeit,read_parse_config
+from base.utils import setup_logging,timeit,read_parse_config
 import subprocess
+from pprint import pprint
 
 class BaseETL:
     def __init__(self,date,name=None,log_level='DEBUG',data_dir=None,**kwargs) -> None:
@@ -79,17 +80,17 @@ class BaseETL:
         etl.run_etl()       
         
 ################### Test Area ###########################
-from datetime import datetime
-test=datetime.now()
-test.isoformat()
-from pprint import pprint
-import pprint
-test_dict={
-    'a':1,
-    'b':2
-}
-pprint(test_dict,indent=10)
-pprint.pformat(test_dict,indent=4)
+# from datetime import datetime
+# test=datetime.now()
+# test.isoformat()
+# from pprint import pprint
+# import pprint
+# test_dict={
+#     'a':1,
+#     'b':2
+# }
+# pprint(test_dict,indent=10)
+# pprint.pformat(test_dict,indent=4)
 
 
 #########################################################
