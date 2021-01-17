@@ -6,7 +6,7 @@ aws_secret: &aws_secret {{ aws_secret }}
 aws_key: &aws_key {{ aws_key }}
 
 # Postgres (substitute for Redshift DWH)
-pg_connection: &pg_connection postgresql+psycopg2://{{ pg_user }}:{{ pg_password }}@{{ pg_host }}:{{ redshift_port }}/{{ pg_dbname }}
+pg_connection: &pg_connection postgresql+psycopg2://{{ pg_user }}:{{ pg_password }}@{{ pg_host }}:{{ pg_port }}/{{ pg_dbname }}
 
 #? define dict for task1
 S3toPostgres:

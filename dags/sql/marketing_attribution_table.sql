@@ -3,7 +3,7 @@ CREATE SCHEMA IF NOT EXISTS test AUTHORIZATION postgres;
 
 -- Marketing attribution data table
 CREATE TABLE IF NOT EXISTS marketing_data (
-    amount decimal,
+    amount real,
     app_name varchar(100),
     app_version varchar(100),
     campaign varchar(100),
@@ -15,15 +15,15 @@ CREATE TABLE IF NOT EXISTS marketing_data (
     event_name varchar(100),
     event_utc_timestamp varchar(100),
     install_utc_timestamp varchar(100),
-    is_first_event boolean,
-    is_organic boolean,
-    is_reengagement boolean,
-    is_viewthrough boolean,
-    limit_ad_tracking boolean,
+    is_first_event integer,
+    is_organic integer,
+    is_reengagement integer,
+    is_viewthrough integer,
+    limit_ad_tracking integer,
     longname varchar(100),
     network varchar(100),
     partner_site varchar(100),
-    platform varhcar(50),
+    platform varchar(50),
     sdid varchar(500),
     singular_click_id varchar(500),
     site varchar(100),
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS marketing_data (
     partner_campaign varchar(500),
     partner_sub_campaign varchar(100),
     tracker_campaign_id varchar(500),
-    tracker_campign_name varchar(500),
+    tracker_campaign_name varchar(500),
     tracker_creative_id varchar(100),
     tracker_sub_campaign_id varchar(100),
     utm_campaign varchar(500),
@@ -41,5 +41,5 @@ CREATE TABLE IF NOT EXISTS marketing_data (
     utm_medium varchar(100),
     utm_source varchar(100),
     utm_term varchar(100),
-    purchase_receipt_valid boolean
+    purchase_receipt_valid integer
 );

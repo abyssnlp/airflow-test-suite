@@ -3,3 +3,4 @@ config/config.ini
 .ipynb_checkpoints/
 config/rendered_templates/*
 Tasks/s3topostgres_task.py
+base/__pycache__
